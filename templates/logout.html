@@ -1,0 +1,19 @@
+{% if user.is_authenticated %}
+    <li><a href="{% url 'profile' %}">Profil</a></li>
+    <li>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Çıkış Yap</button>
+        </form>
+    </li>
+    <li><span>Hoşgeldin, {{ user.username }}</span></li>
+{% else %}
+    <li class="dropdown">
+        <a href="#" class="dropbtn">Giriş Yap</a>
+        <div class="dropdown-content">
+            <a href="{% url 'login' %}">Giriş Yap</a>
+            <a href="{% url 'register' %}">Üye Ol</a>
+        </div>
+    </li>
+{% endif %}
+

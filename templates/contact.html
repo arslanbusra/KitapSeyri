@@ -1,0 +1,77 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container2">
+    <div style="text-align:center">
+      <h2>Kitap Seyriyle Bağlantıda Kalın</h2>
+      <p>Yeni bir kitaba başlayabilir <i class="fa fa-book"></i> ya da bize yazabilirsin:</p>
+    </div>
+    <div class="row">
+      <div class="column">
+        <img src="{% static 'img/contact.jpg' %}"  style="width:100%">
+      </div>
+      <div class="column">
+        <form action="/action_page.php">
+          <label for="fname">Adınız</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+          <label for="lname">Soy Adınız</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+          <label for="country">Şehir</label>
+          <select id="country" name="country">
+            <option value="Ankara">Ankara</option>
+            <option value="İstanbul">İstanbul</option>
+            <option value="Bursa">Bursa</option>
+          </select>
+          <label for="subject">Açıklama</label>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+          <input type="submit" value="Submit">
+        <br>
+        <br>
+          <h2>Hızlı Yanıtlar</h2>
+  
+            <button class="accordion">Nasıl İade Edebilirim?</button>
+              <div class="panel">
+                  <p>Siparişinizi iade etmek için 30 gün süreniz bulunmaktadır.
+                        Aşağıdaki adımları izleyerek kolaylıkla iadenizi gerçekleştirebilirsiniz:
+                        1. İade sebebinizi en iyi açıklayan iade kodunu faturanızın ön yüzünde bulunan "iade kodu" alanına yazın.
+                        2. Faturanızı, iade etmek istediğiniz ürünler ile beraber siparişinizin gönderildiğine benzer bir poşet veya kutuya yerleştirin.
+                  </p>
+              </div>
+  
+            <button class="accordion">Değişim Yapmam Mümkün Müdür?</button>
+              <div class="panel">
+                  <p>Yapılan alışverişlerde değişim seçeneği sunulmamaktadır. 
+                    Dilerseniz satın aldığınız ürünü iade edebilir ve yeni bir sipariş oluşturabilirsiniz. </p>
+              </div>
+  
+            <button class="accordion">İade İçin Kargo Ücreti Ödeyecek Miyim?</button>
+              <div class="panel">
+                  <p>İadelerinizi, anlaşmalı firmamız olan Yurtiçi Kargo ile ücretsiz bir şekilde gerçekleştirebilirsiniz.</p>
+              </div>
+  
+  <script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+  
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function(event) {
+      event.preventDefault();
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+  </script>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+{% endblock %}

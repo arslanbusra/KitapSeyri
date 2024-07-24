@@ -1,0 +1,85 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+{% load static %}
+
+<h2>Tamamla ve Öde</h2>
+<p>Son adımı tamamla ve kitap seyrinde yola çık!</p>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/action_page.php">
+      
+        <div class="row">
+          <div class="col-50">
+            <h3>Fatura Bilgileri</h3>
+            <label for="fname"><i class="fa fa-user"></i>Adınız</label>
+            <input type="text" id="fname" name="firstname" placeholder="Büşra Arslan">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="busra@example.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Adres</label>
+            <input type="text" id="adr" name="address" placeholder="Karşıyaka Mah. Garaj Sok.">
+            <label for="city"><i class="fa fa-institution"></i> Şehir</label>
+            <input type="text" id="city" name="city" placeholder="Yalova">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">İlçe</label>
+                <input type="text" id="state" name="state" placeholder="Armutlu">
+              </div>
+              <div class="col-50">
+                <label for="zip">Posta Kodu</label>
+                <input type="text" id="zip" name="zip" placeholder="10001">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>Satın Alma Detayları</h3>
+            <label for="fname">Kredi Kartları</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Kart Üzerindeki İsim</label>
+            <input type="text" id="cname" name="cardname" placeholder="Büşra Arslan">
+            <label for="ccnum">Kredi Kartı Numarası</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="expmonth">Son Kullanma Tarihi Ay Bilgisi</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="Eylül">
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Son Kullanma Tarihi Yıl Bilgisi</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2018">
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="352">
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr"> Faturam teslimat ile aynı adrese teslim edilsin.
+        </label>
+        <input type="submit" value="Ödemeyi Tamamla" class="btn">
+      </form>
+    </div>
+  </div>
+  <div class="col-25">
+    <div class="container">
+      <h4>Sepet <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
+      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
+      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
+      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+      <hr>
+      <p>Toplam <span class="price" style="color:black"><b>$30</b></span></p>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

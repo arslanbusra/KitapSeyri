@@ -1,0 +1,28 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+<div class="row">
+    {% for article in articles %}
+    <div class="column">
+        <img src="{{ article.image.url }}" alt="{{ article.title }}">
+        <p><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></p>
+        <p>{{ article.content|truncatewords:30 }}</p>
+        <div class="like-container">
+            <button class="like-button" onclick="increaseLikes(this)">
+                <span class="like-icon">👏</span>
+            </button>
+            <span class="like-count">0</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+function increaseLikes(button) {
+    const likeCountSpan = button.nextElementSibling;
+    let likeCount = parseInt(likeCountSpan.textContent);
+    likeCount++;
+    likeCountSpan.textContent = likeCount;
+}
+</script>
+{% endblock %}
+

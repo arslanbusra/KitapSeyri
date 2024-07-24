@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+img {
+  border-radius: 8px;
+
+}
+.art0{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.art0 h2{
+
+    text-align: center;   
+    
+
+}
+
+
+.art0 h2 a{
+
+   
+    text-decoration: none;
+
+}

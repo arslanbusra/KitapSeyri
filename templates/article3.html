@@ -1,0 +1,49 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="art0">
+        <img src="{% static 'img/coffee1.jpg' %}" alt="kitap">
+            <h2>Neden kahve molası vermelisiniz? Başarınıza katkı sağlayan 7 sebep</h2>
+                <p>Gün ortasında bir kahve molası vermeden, kahve molasının sihrini anlayamazsınız!
+                    Ancak, bu zamanı iple çekenler, nasıl bir rahatlama sağladığını çok iyi bilirler.
+                    İçeriğindeki kafein ile gün ortasında size enerji desteği veren kahveye biraz çikolata ekleyerek
+                    onun çikolata kremamsı tadının keyfini çıkarmak, modunuzu yükseltmenin en kolay ve pratik yollarından biri!                    
+                    Sadece içecek içindeki kimyasal etkiler dışında kahvenin sosyalleşme dostu olduğu da aşikar.
+                    Dışarı çıkmaya zamanınız yoksa, bu değişimi siz yaratabilirsiniz.
+
+                    Çalışmasına iki kahve molası katanların iş stresini daha az yaşadığını gözlemlemişsinizdir.
+                    
+                    Şimdi, şu yazıdaki maddelerden yola çıkarak, iş yerinde kahve molası vermenin görünmeyen “side benefit”lerine bakalım: :)
+                    
+                    1-Konuşmaya ihtiyacınız var:
+                    9 saat bilgisayarla çalışırken bilgisayarınız dışında biriyle iletişim kurmaya ihtiyacınız var. İş arkadaşlarınızla havadan sudan konuşmak bile kafanızı dağıtır, bağları güçlendirir ve birlikte aynı amaç uğruna çalıştığınız insanlarla sorunları daha kolay aşmanızı sağlar.
+                    
+                    2- Stres detoksu
+                    Problemden uzaklaşıp, size keyif veren, hem de pratik bir yolu seçerseniz problemi çözme ihtimaliniz artacaktır. Kahvenin içindeki kafein yenilenmenizi sağlar, bu yeni ve dingin halinizle soruna yeni bir gözle bakarsınız.
+                    
+                    3-Bacaklarınız için sağlıklı
+                    Bütün gün sandalyede oturmanızı engeller. Bu hem bacaklarınız, hem genel sağlığınız için önemli. Ofis kafeteryasına küçük bir yürüyüş bile iyi gelecektir.
+                    
+                    4- Tatil uykunuzu açar
+                    Pazartesilerin diğer günlerden farkı, hafta sonu ile aranıza girmiş olmasıdır. Özellikle, hafta sonu yemeklerden sonra hafif bir kestirmeye alışkınsanız, bu ani değişime uyumlanmak için Pazartesi kahvesi ılımlı bir geçiş sağlayacaktır.
+                    
+                    5- Arkadaşlarla sohbet fırsatı
+                    İş arkadaşlarınızla, iş dışındaki bir anda karşılaşmanız, görüşmenizi konuşmanız, onları görüşünüzü değiştirebilir. İş arkadaşlarınızın günlük hayatı hakkında detayları öğrenmek, gruba içi yakınlığı artırır, olumlu bir hava katar.Siz de onları iş karakteriniz dışında sosyal yönünüzle tanıştırabilirsiniz.
+                    
+                    6- Aklınızı açar
+                    Ara vermek aklınızı açar! Kahve arası ise bunun en keyifli hali olabilir. Ortada bir yanlış anlaşılma varsa, problem varsa, bir ara verip konudan çıkıp uzaktan bakmak, herkes için faydalı olacaktır.
+                    
+                    7- Hafifletir
+                    Kafein vücudunuzu harekete geçirir, uzakları yakınlaştırır. Tabii ki fiziksel gerçekilğe etki edecek gücü yoktur :) ama sizi yarım saat öncesine daha aktif halie getirerek, yoğunluklardan arındırır ve işlerle baş etme gücü verir.
+                    
+                    Kahve ve kafeinin vücuttaki etkisi bünyeye ve alışkanlıklara göre değişiklik gösterse de, temel ve ortalama olarak bu çerçevede uyandırıcı etkisi olan bir içecek.
+                    
+                    Ülkemizde önceki nesilden farklı olarak, bu nesil çalışma hayatının demirbaşlarından diyebileceğimiz kadar alıştığımız kahveyi, size keyif vereceği kadar tüketmeniz dileğiyle.</p>
+        <div class="like-section">
+            <button onclick="increaseLike('likeCount2')">Beğen</button>
+            <span id="likeCount2">0</span> Beğeni
+        </div>
+    </div>
+
+{% endblock %}

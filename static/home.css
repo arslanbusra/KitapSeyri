@@ -1,0 +1,420 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat') format('truetype');
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Header Ayarları */
+header {
+    width: 100%;
+    background-color:lavender;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 100px;
+}
+
+.menu ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    margin: 0 20px;
+}
+
+.menu ul li a {
+    color: #3CB371;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-family: 'Pompiere';
+    src: url('fonts/Pompiere') format('truetype');
+    font-size: 20px;
+}
+
+.menu ul li a:hover {
+    background-color: #6495ED;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown button */
+.dropbtn {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #f1f1f1;
+}
+
+
+.user-greeting {
+    font-family: 'Pompiere', sans-serif;  /* Menü ile aynı fontu kullanın */
+    font-size: 20px;                      /* Menü ile aynı font boyutunu kullanın */
+    padding: 12px;                        /* Menü öğeleri ile aynı padding değerini kullanın */
+    border-radius: 4px;                   /* Menü öğeleri ile aynı border-radius değerini kullanın */
+    background-color: #f2f2f2;            /* Arka plan rengi menü öğeleri ile uyumlu olsun */
+    color: #3CB371;                       /* Menü öğeleri ile uyumlu renk kullanın */
+    display: inline-block;                /* Blok içinde doğru hizalamak için inline-block kullanın */
+}
+
+
+.addSpace {
+    margin-top: 120px; /* Menü yüksekliği kadar boşluk bırakılır */
+}
+
+
+.menu ul li .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.menu ul li .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.menu ul li .dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.menu ul li:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Main Slider Ayarları */
+#mainSlider {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-image: url("../static/img/anasayfa.jpg");
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 70px; /* Fixed header offset */
+
+}
+
+#mainSlider h1 {
+    font-size: 30px;
+    margin: 0;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat') format('truetype');
+  
+}
+
+#mainSlider p {
+    font-size: 20px;
+    margin: 10px 0 0 0;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat') format('truetype');
+  
+}
+
+/* Feature Section Ayarları */
+.sectionArea {
+    padding: 60px 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 20px 0;
+}
+
+.sectionHeader {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    
+}
+
+.featuresBody .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.col3 {
+    flex: 0 0 30%;
+    margin-bottom: 20px;
+}
+
+.item {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.item img {
+    width: 100%;
+    border-bottom: 2px solid #007bff;
+}
+
+.itemText {
+    padding: 15px;
+    text-align: left;
+}
+
+.itemText h3 {
+    font-size: 1.5em;
+    margin: 0 0 10px;
+   
+}
+
+.itemText p {
+    margin: 0 0 10px;
+    color: #777;
+    
+}
+
+.btnDetails {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:cornflowerblue ;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btnDetails:hover {
+    background-color: #0056b3;
+}
+
+/* Parallax Section Ayarları */
+
+
+/* CSS Dosyanızda */
+.sectionArea {
+    position: relative;
+    padding: 60px 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 20px 0;
+}
+
+.sectionArea.bg-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../static/img/etkinlik.jpg"); /* Görselin doğru yolunu belirtin */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+    z-index: 0;
+}
+
+.sectionArea .featuresTop, 
+.sectionArea .featuresBody, 
+.sectionArea .container {
+    position: relative;
+    z-index: 1; 
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+
+/* Activity Section Ayarları */
+#activity .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+}
+
+.col2 {
+    flex: 0 0 48%;
+    margin-bottom: 20px;
+}
+
+.articleContainer {
+    position: relative;
+}
+
+.articleContainer img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.articleText {
+    text-decoration: none;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color:white;
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+
+.articleContainer h2 a{
+
+    text-decoration: none;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color:white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Footer Ayarları */
+footer {
+    
+    color: black;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: darkcyan; 
+
+}
+
+footer .footerItem {
+    flex: 0 0 30%;
+    margin-bottom: 20px;
+}
+
+footer .footerItem h3 {
+    margin-bottom: 10px;
+}
+
+footer .footerlinks {
+    list-style: none;
+    padding: 0;
+  
+    
+}
+
+footer .footerlinks li {
+    margin-bottom: 5px;
+}
+
+footer .footerlinks a {
+    color:white;
+    text-decoration: none;
+    transition: color 0.3s;
+    text-align: center;
+}
+
+footer .footerlinks a:hover {
+    color: #007bff;
+}
+
+footer .footerlinks i {
+    margin-right: 10px;
+    color:white;
+}
+
+.fa {
+    display: inline-block;
+    padding: 20px;
+    font-size: 30px;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+    vertical-align: middle;
+    line-height: 60px; 
+  }
+
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  
+  
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }

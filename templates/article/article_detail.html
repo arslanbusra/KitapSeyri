@@ -1,0 +1,22 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+<div class="art0">
+    <img src="{{ article.image.url }}" alt="{{ article.title }}">
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.content }}</p>
+    <div class="like-section">
+        <button onclick="increaseLike('likeCount')">Beğen</button>
+        <span id="likeCount">0</span> Beğeni
+    </div>
+</div>
+<script>
+function increaseLike(likeCountId) {
+    const likeCountSpan = document.getElementById(likeCountId);
+    let likeCount = parseInt(likeCountSpan.textContent);
+    likeCount++;
+    likeCountSpan.textContent = likeCount;
+}
+</script>
+{% endblock %}
+
+

@@ -1,0 +1,34 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+    <div class="sidebar">
+        <h2>Kategoriler</h2>
+        <ul>
+            {% for category in categories %}
+            <li>{{ category.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="book-list">
+            {% for book in books %}
+            <div class="book-item">
+                <img src="{{ book.bookimage.url }}" alt="{{ book.bookname }}">
+                <h3>{{ book.bookname }}</h3>
+                <p>Yazar: {{ book.authorname }}</p>
+                <p>Fiyat: {{ book.price }} ₺</p>
+                <p>İndirim: {{ book.discount }} %</p>
+                <p>Kategori: {{ book.booktype.name }}</p>
+                <p>Dil: {{ book.booklang.name }}</p>
+                <button class="cart-button">Sepete Ekle</button>
+            </div>
+            {% endfor %}
+            <!-- Diğer kitaplar -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

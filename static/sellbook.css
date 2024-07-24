@@ -1,0 +1,35 @@
+.sellblock {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.sellblock h3 {
+    text-align: center;
+}
+.sellblock label {
+    display: block;
+    margin-top: 10px;
+}
+.sellblock input, .sellblock select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.sellblock button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.sellblock button:hover {
+    background-color: #0056b3;
+}

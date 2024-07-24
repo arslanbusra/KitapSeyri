@@ -1,0 +1,36 @@
+ {% load static %}
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="{% url 'index' %}"><img src="{% static 'img/kitapseyri.jpg' %}" alt="Kitap Seyri"></a>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'sellbook' %}">KitapSat</a></li>
+                <li><a href="{% url 'buybook' %}">SatınAl</a></li>
+                <li><a href="{% url 'article_list' %}">Makalelerimiz</a></li>
+                <li><a href="{% url 'about' %}">Hakkımızda</a></li>
+                <li><a href="{% url 'event_list' %}">Etkinlik</a></li>
+                <li><a href="{% url 'contact' %}">İletişim</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'profile' %}">Profil</a></li>
+                <li><a href="{% url 'logout' %}">Çıkış Yap</a></li>
+                <li class="user-greeting"><span>Hoşgeldin, {{ user.username }}</span></li>
+                {% else %}
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Giriş Yap</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'login' %}">Giriş Yap</a>
+                        <a href="{% url 'register' %}">Üye Ol</a>
+                    </div>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- İçerik Kapsayıcı -->
+<div class="addSpace">
+</div>

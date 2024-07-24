@@ -1,0 +1,101 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+{% load static %}
+
+<!-- main section -->
+    <section id="mainSlider" class="slider">	
+        <div id="mainCaption" class="caption"></div>
+        <h1>Oku, Paylaş, Keşfet!</h1>
+        <p>Okumanın Sihirli Dünyasına Hoşgeldin!</p>
+    </section>
+
+    <!-- feature section -->
+    <section id="features" class="sectionArea">
+        <div class="featuresTop">
+            <h2 class="sectionHeader">Favori Kitaplar</h2>
+        </div>
+        <div class="featuresBody">
+            <div class="container">
+                <div class="col3">
+                    <div class="item">
+                        <div class="zoom">
+                            <img src="{% static 'img/gülse.jpg' %}" alt="Gülse Birsel">
+                        </div>
+                        <div class="itemText">
+                            <h3>Beni Gözünüzde Büyütmeyin!</h3>
+                            <p>Yazar: Gülse Birsel&nbsp;YayınEvi: Doğan Kitap</p>
+                            <a href="#" class="btnDetails">Satın Al</a>
+                        </div>       
+                    </div>
+                </div>
+                <div class="col3">
+                    <div class="item">
+                        <div class="zoom">
+                            <img src="{% static 'img/rezonans.jpg' %}" alt="Rezonans">
+                        </div>
+                        <div class="itemText">
+                            <h3>Beni Gözünüzde Büyütmeyin!</h3>
+                            <p>Yazar: Gülse Birsel&nbsp;YayınEvi: Doğan Kitap</p>
+                            <a href="#" class="btnDetails">Satın Al</a>
+                        </div>       
+                    </div>
+                </div>
+                <div class="col3">
+                    <div class="item">
+                        <div class="zoom">
+                            <img src="{% static 'img/serenad.jpg' %}" alt="Serenad">
+                        </div>
+                        <div class="itemText">
+                            <h3>Beni Gözünüzde Büyütmeyin!</h3>
+                            <p>Yazar: Gülse Birsel&nbsp;YayınEvi: Doğan Kitap</p>
+                            <a href="#" class="btnDetails">Satın Al</a>
+                        </div>       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- parallax section -->
+    
+    <section id="events" class="sectionArea bg-image">
+        <div class="featuresTop">
+            <h2 class="sectionHeader">Etkinlik Ajandası</h2>
+        </div>
+        <div class="featuresBody">
+            <div class="container">
+                <p>Hemen sen de kayıt ol ve yapacağımız okuma etkinliklerinde yerini al.Üstelik etkinliklerimizde bir sürpriz isim bizimle! Misafirimiz kitabın yazarı, editörü ve kim bilir kitabın karakteri olabilir.</p>
+                <p>Haydi birlikte okumanın sihirli dünyasında kaybolalım. <a href="#">Etkinliklerimize Davetlisiniz! Kayıt İçin Tıklayın.</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- activity section -->
+    <section id="activity" class="sectionArea">
+        <div class="activityTop">
+            <h2 class="sectionHeader">Bilgi Köşesi</h2>
+            <p>Bilgi dolu ve ilham verici makalelerimizle, kitapların ötesine geçerek yeni keşiflere çıkın</p>
+            <p>Zihninizi genişletecek, ufkunuzu açacak ve okuma tutkunuzu pekiştirecek bu yazılarla, her sayfada yeni bir bilgi sizi bekliyor. </p>
+            <p>Makalelerimizi keşfetmek için hemen şimdi göz atın!</p>
+            
+        </div>
+        <div class="articleBody">
+            <div class="container">
+                <div class="col2">
+                    <div class="articleContainer">
+                        <img src="{% static 'img/okumaAlıskanlık.jpg' %}" class="imageOver" alt="Okuma Alışkanlıkları">
+                        <h2><a href=article_detail.html> Zihninizi Dinlendirin, Kitapların Büyüsüne Kapılın!</a></h2>
+                    </div>
+                </div>
+                <div class="col2">
+                    <div class="articleContainer">
+                        <img src="{% static 'img/teknoOkuma.jpg' %}" class="imageOver" alt="Teknolojik Okuma">
+                        <h2><a href=article_detail.html> Zihninizi Dinlendirin, Kitapların Büyüsüne Kapılın!></a></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer section -->
+    {% endblock %}

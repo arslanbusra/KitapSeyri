@@ -1,0 +1,27 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+<div class="event-container">
+    {% for event in events %}
+    <div class="event-card">
+        <div class="event-date">
+            <p>{{ event.date|date:"d M, l" }}</p>
+        </div>
+        <div class="event-details">
+            <div class="event-info">
+                <h2><a href="{% url 'event_detail' event.pk %}">{{ event.title }}</a></h2>
+                <p><strong>{{ event.date|date:"d M, l" }}, {{ event.time|time:"H:i" }}</strong></p>
+                <p><i class="fa fa-map-marker"></i> {{ event.location }}</p>
+            </div>
+            <div class="event-image">
+                <img src="{{ event.image.url }}" alt="{{ event.title }}">
+            </div>
+        </div>
+        <div class="event-footer">
+            <div class="event-participants">
+                <span>{{ event.participants.count }} üye katılıyor</span>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

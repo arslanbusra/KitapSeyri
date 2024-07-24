@@ -1,0 +1,63 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container1 {
+
+  text-align: center;
+  width: 100%;
+  margin: 0 auto; /* Ortalamak için margin auto */
+
+}
+
+.center h3 {
+  text-align: center; 
+  margin-top:20px;
+}
+
+
+.large {
+  font-size: 1.25em;
+  margin-top:10px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 64px;
+  width: 100%;
+  text-align: center; 
+}
+
+.quarter {
+  flex: 1;
+  max-width: 25%;
+  box-sizing: border-box;
+  padding: 16px;
+  color: black;
+}
+
+.margin-bottom {
+  margin-bottom: 16px;
+}
+
+.jumbo {
+  font-size: 3em;
+ 
+}
+
+@media (max-width: 768px) {
+  .quarter {
+      max-width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .quarter {
+      max-width: 100%;
+  }
+}
