@@ -7,6 +7,7 @@
         <div class="menu">
             <ul>
                 <li><a href="{% url 'index' %}">Home</a></li>
+                {% if user.is_authenticated %}
                 <li><a href="{% url 'sellbook' %}">KitapSat</a></li>
                 <li><a href="{% url 'buybook' %}">SatınAl</a></li>
                 <li><a href="{% url 'article_list' %}">Makalelerimiz</a></li>
