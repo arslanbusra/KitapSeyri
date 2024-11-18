@@ -6,8 +6,9 @@
     <h2>{{ article.title }}</h2>
     <p>{{ article.content }}</p>
     <div class="like-section">
-        <button onclick="likeArticle('{{ article.id }}')">👏</button>
-        <span id="likeCount">{{ likes }}</span> Beğeni
+        <button onclick="likeArticle('{{ article.id }}, {{ csrf_token }}')">👏</button>
+        <span id="likeCount-{{ article.id }}">{{ article.likes }}</span> Beğeni
+    </div>
     </div>
     <div class="comment-section">
         <h3>Yorumlar</h3>
