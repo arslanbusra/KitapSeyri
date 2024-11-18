@@ -1,27 +1,175 @@
+/* Genel Ayarlar */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat') format('truetype');
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
+/* Resim Ayarları */
 img {
-  border-radius: 8px;
-
-}
-.art0{
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.art0 h2{
-
-    text-align: center;   
-    
-
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Ana İçerik Ayarları */
+.art0 {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-.art0 h2 a{
+.art0 h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
 
-   
+.art0 p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Beğeni Bölümü Ayarları */
+.like-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.like-section button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.like-section button:hover {
+    background-color: #0056b3;
+}
+
+.like-section span {
+    font-size: 1.2em;
+    margin-left: 10px;
+    color: #007BFF;
+}
+
+/* Yorum Bölümü Ayarları */
+.comment-section {
+    margin-top: 30px;
+}
+
+.comment-section h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.comment-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment-section ul li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-section ul li b {
+    color: #007BFF;
+}
+
+.comment-section ul li i {
+    color: #999;
+    font-size: 0.9em;
+}
+
+.comment-section textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.comment-section button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.comment-section button:hover {
+    background-color: #0056b3;
+}
+
+.comment-section a.button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
     text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
 
+.comment-section a.button:hover {
+    background-color: #0056b3;
+}
+
+/* Alt Çizgiyi Kaldırma */
+.comment-section a {
+    text-decoration: none;
+}
+
+/* Daha Estetik Linkler ve Butonlar */
+.comment-section a {
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.comment-section a:hover {
+    color: #0056b3;
+}
+
+.comment-section .login-link {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #f4f4f9;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.comment-section .login-link:hover {
+    background-color: #007BFF;
+    color: #fff;
 }

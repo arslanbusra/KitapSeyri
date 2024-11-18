@@ -118,7 +118,7 @@ header {
 
 
 .addSpace {
-    margin-top: 120px; /* Menü yüksekliği kadar boşluk bırakılır */
+    margin-top: 200px; /* Menü yüksekliği kadar boşluk bırakılır */
 }
 
 
@@ -194,18 +194,20 @@ header {
 .sectionHeader {
     font-size: 2.5em;
     margin-bottom: 20px;
-    
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat') format('truetype');
 }
 
 .featuresBody .container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 20px; /* Öğeler arasındaki boşluk */
 }
 
 .col3 {
-    flex: 0 0 30%;
-    margin-bottom: 20px;
+    flex: 1 1 calc(33.333% - 20px); /* 3 sütun ve gap hesaba katılarak */
+    box-sizing: border-box; /* Padding ve border hesaba katılsın */
 }
 
 .item {
@@ -213,6 +215,8 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .item img {
@@ -223,24 +227,23 @@ header {
 .itemText {
     padding: 15px;
     text-align: left;
+    flex-grow: 1; /* Öğeler arasında esneklik sağlar */
 }
 
 .itemText h3 {
     font-size: 1.5em;
     margin: 0 0 10px;
-   
 }
 
 .itemText p {
     margin: 0 0 10px;
     color: #777;
-    
 }
 
 .btnDetails {
     display: inline-block;
     padding: 10px 20px;
-    background-color:cornflowerblue ;
+    background-color: cornflowerblue;
     color: white;
     text-decoration: none;
     border-radius: 5px;

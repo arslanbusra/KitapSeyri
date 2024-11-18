@@ -7,38 +7,13 @@
         <h3>Kitap Satışı Yap</h3>
         <form action="{% url 'sellbook' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <label for="b_name">Kitap İsmi</label>
-            <input type="text" id="b_name" name="bookname" placeholder="Kitabın İsmi" required>
-            
-            <label for="a_name">Yazar</label>
-            <input type="text" id="a_name" name="authorname" placeholder="Kitabın yazarının ismini giriniz" required>
-            
-            <label for="price">Fiyat</label>
-            <input type="text" id="price" name="price" placeholder="Kitabın fiyatını giriniz" required>
-            
-            <label for="d_price">İndirim Oranı</label>
-            <input type="text" id="d_price" name="discount" placeholder="İndirim oranını giriniz" required>
-            
-            <label for="b_type">Kitabın ait olduğu kategoriyi seçin.</label>
-            <select name="booktype" id="booktype" required>
-                {% for Category in categories %}
-                    <option value="{{ category.id }}">{{ category.name }}</option>
-                {% endfor %}
-            </select>
-            
-            <label for="b_ltype">Kitabın dilini seçin.</label>
-            <select name="booklang" id="booklang" required>
-                {% for Language in languages %}
-                    <option value="{{ language.id }}">{{ language.name }}</option>
-                {% endfor %}
-            </select>      
-            <label for="book_image">Kitap Fotoğrafı</label>
-            <input type="file" id="book_image" name="bookimage" accept="image/*" required>    
+            {{ form.as_p }}
             <button type="submit">Yükle</button>
         </form>
-       
     </div>
 </div>
 
 {% endblock %}
+
+
 

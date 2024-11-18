@@ -1,8 +1,13 @@
 from django.contrib import admin
-from .models import SellBook, Category, Language
+from .models import Category, Language, SellBook
 
-admin.site.register(SellBook)
 admin.site.register(Category)
 admin.site.register(Language)
+admin.site.register(SellBook)
+
+
+
+
+
 
 

@@ -5,6 +5,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 from django.contrib import messages
 from .forms import UserRegisterForm
+from sellbook.models import SellBook
+from payment.models import PaymentOrder
+from activity.models import Event, Participant
+from .models import Profile
 
 # Kullanıcı Kaydı
 def register(request):
@@ -12,6 +16,7 @@ def register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
+            Profile.objects.create(user=user) 
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
@@ -19,7 +24,9 @@ def register(request):
                 login(request, user)
                 return redirect('profile')
         else:
-            messages.error(request, "Lütfen formu doğru doldurun.")
+            for field in form:
+                for error in field.errors:
+                    messages.error(request, f"{field.label}: {error}")
     else:
         form = UserRegisterForm()
     return render(request, 'register.html', {'form': form})
@@ -38,7 +45,9 @@ def login_view(request):
             else:
                 messages.error(request, "Kullanıcı adı veya şifre yanlış.")
         else:
-            messages.error(request, "Lütfen formu doğru doldurun.")
+            for field in form:
+                for error in field.errors:
+                    messages.error(request, f"{field.label}: {error}")
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
@@ -51,5 +60,13 @@ def logout_view(request):
 # Kullanıcı Profili
 @login_required
 def profile(request):
-    return render(request, 'profile.html')
+    user_books = SellBook.objects.filter(seller=request.user)
+    orders = PaymentOrder.objects.filter(user=request.user)
+    joined_events = Event.objects.filter(participants__user=request.user)
 
+    context = {
+        'orders': orders,
+        'user_books': user_books,
+        'joined_events': joined_events,
+    }
+    return render(request, 'profile.html', context)

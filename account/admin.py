@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from .models import Profile
+from payment.models import PaymentOrder, OrderItem
 
 class ProfileInline(admin.StackedInline):
     model = Profile
@@ -32,3 +33,13 @@ class ProfileAdmin(admin.ModelAdmin):
     user_email.short_description = 'Email'
     user_first_name.short_description = 'First Name'
     user_last_name.short_description = 'Last Name'
+
+# PaymentOrder modelini admin paneline ekle
+@admin.register(PaymentOrder)
+class PaymentOrderAdmin(admin.ModelAdmin):
+    list_display = ['user', 'total_amount', 'created_at']
+
+# OrderItem modelini admin paneline ekle
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = ['order', 'book', 'quantity']

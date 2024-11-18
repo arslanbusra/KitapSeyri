@@ -1,5 +1,7 @@
 {% extends 'partials/base.html' %}
 {% block content %}
+{% load static %}
+
 <div class="row">
     {% for article in articles %}
     <div class="column">
@@ -7,22 +9,17 @@
         <p><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></p>
         <p>{{ article.content|truncatewords:30 }}</p>
         <div class="like-container">
-            <button class="like-button" onclick="increaseLikes(this)">
+            <button class="like-button" onclick="likeArticle('{{ article.id }}, {{ csrf_token }}')">
                 <span class="like-icon">👏</span>
             </button>
-            <span class="like-count">0</span>
+            <span id="like-count-{{ article.id }}">{{ article.likes }}</span>
         </div>
     </div>
     {% endfor %}
 </div>
-
-<script>
-function increaseLikes(button) {
-    const likeCountSpan = button.nextElementSibling;
-    let likeCount = parseInt(likeCountSpan.textContent);
-    likeCount++;
-    likeCountSpan.textContent = likeCount;
-}
-</script>
+<script src="{% static 'js/article.js' %}"></script>
 {% endblock %}
+
+
+
 

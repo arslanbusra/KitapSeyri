@@ -16,42 +16,20 @@
         </div>
         <div class="featuresBody">
             <div class="container">
+                {% for book in favorite_books %}
                 <div class="col3">
                     <div class="item">
                         <div class="zoom">
-                            <img src="{% static 'img/gülse.jpg' %}" alt="Gülse Birsel">
+                            <img src="{{ book.bookimage.url }}" alt="{{ book.bookname }}">
                         </div>
                         <div class="itemText">
-                            <h3>Beni Gözünüzde Büyütmeyin!</h3>
-                            <p>Yazar: Gülse Birsel&nbsp;YayınEvi: Doğan Kitap</p>
-                            <a href="#" class="btnDetails">Satın Al</a>
+                            <h3>{{ book.bookname }}</h3>
+                            <p>Yazar: {{ book.authorname }}</p>
+                            <a href="{% url 'buybook' %}" class="btnDetails">Satın Al</a>
                         </div>       
                     </div>
                 </div>
-                <div class="col3">
-                    <div class="item">
-                        <div class="zoom">
-                            <img src="{% static 'img/rezonans.jpg' %}" alt="Rezonans">
-                        </div>
-                        <div class="itemText">
-                            <h3>Beni Gözünüzde Büyütmeyin!</h3>
-                            <p>Yazar: Gülse Birsel&nbsp;YayınEvi: Doğan Kitap</p>
-                            <a href="#" class="btnDetails">Satın Al</a>
-                        </div>       
-                    </div>
-                </div>
-                <div class="col3">
-                    <div class="item">
-                        <div class="zoom">
-                            <img src="{% static 'img/serenad.jpg' %}" alt="Serenad">
-                        </div>
-                        <div class="itemText">
-                            <h3>Beni Gözünüzde Büyütmeyin!</h3>
-                            <p>Yazar: Gülse Birsel&nbsp;YayınEvi: Doğan Kitap</p>
-                            <a href="#" class="btnDetails">Satın Al</a>
-                        </div>       
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -65,7 +43,7 @@
         <div class="featuresBody">
             <div class="container">
                 <p>Hemen sen de kayıt ol ve yapacağımız okuma etkinliklerinde yerini al.Üstelik etkinliklerimizde bir sürpriz isim bizimle! Misafirimiz kitabın yazarı, editörü ve kim bilir kitabın karakteri olabilir.</p>
-                <p>Haydi birlikte okumanın sihirli dünyasında kaybolalım. <a href="#">Etkinliklerimize Davetlisiniz! Kayıt İçin Tıklayın.</a></p>
+                <p>Haydi birlikte okumanın sihirli dünyasında kaybolalım. <a href="{% url 'event_list' %}">Etkinliklerimize Davetlisiniz! Kayıt İçin Tıklayın.</a></p>
             </div>
         </div>
     </section>
@@ -77,22 +55,17 @@
             <p>Bilgi dolu ve ilham verici makalelerimizle, kitapların ötesine geçerek yeni keşiflere çıkın</p>
             <p>Zihninizi genişletecek, ufkunuzu açacak ve okuma tutkunuzu pekiştirecek bu yazılarla, her sayfada yeni bir bilgi sizi bekliyor. </p>
             <p>Makalelerimizi keşfetmek için hemen şimdi göz atın!</p>
-            
         </div>
         <div class="articleBody">
             <div class="container">
+                {% for article in articles %}
                 <div class="col2">
                     <div class="articleContainer">
-                        <img src="{% static 'img/okumaAlıskanlık.jpg' %}" class="imageOver" alt="Okuma Alışkanlıkları">
-                        <h2><a href=article_detail.html> Zihninizi Dinlendirin, Kitapların Büyüsüne Kapılın!</a></h2>
+                        <img src="{{ article.image.url }}" class="imageOver" alt="{{ article.title }}">
+                        <h2><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
                     </div>
                 </div>
-                <div class="col2">
-                    <div class="articleContainer">
-                        <img src="{% static 'img/teknoOkuma.jpg' %}" class="imageOver" alt="Teknolojik Okuma">
-                        <h2><a href=article_detail.html> Zihninizi Dinlendirin, Kitapların Büyüsüne Kapılın!></a></h2>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>

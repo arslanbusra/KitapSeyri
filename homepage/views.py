@@ -1,12 +1,17 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render,redirect
 from sellbook.models import SellBook
-from buybook.models import Order
-from django.contrib.auth.decorators import login_required
+from article.models import Article
+from .models import City, ContactMessage
+from .forms import ContactForm
+from django.contrib import messages
+
 
 def index(request):
-    favorite_books = SellBook.objects.all()[:3]  # İlk 3 kitabı getiriyoruz, siz ihtiyacınıza göre sayıyı ayarlayabilirsiniz
+    favorite_books = SellBook.objects.all()[:3] 
+    articles = Article.objects.all()[:2] 
     context = {
         'favorite_books': favorite_books,
+        'articles': articles,
     }
     return render(request, 'index.html', context)
     
@@ -14,33 +19,29 @@ def about(request):
     return render(request, 'about.html')
 
 def contact(request):
-    return render(request, 'contact.html')
-
-@login_required
-def sellbook(request):
     if request.method == 'POST':
-        # Kitap satma formu gönderildiyse
-        bookname = request.POST['bookname']
-        authorname = request.POST['authorname']
-        price = request.POST['price']
-        discount = request.POST['discount']
-        booktype = request.POST['booktype']
-        booklang = request.POST['booklang']
-        bookimage = request.FILES['bookimage']
-        
-        new_book = SellBook(
-            bookname=bookname,
-            authorname=authorname,
-            price=price,
-            discount=discount,
-            booktype=booktype,
-            booklang=booklang,
-            bookimage=bookimage,
-            seller=request.user
-        )
-        new_book.save()
-        return redirect('profile')  # Başarılı sayfasına yönlendirin
-        
-    return render(request, 'sellbook.html')
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact_message = form.save(commit=False)
+            if request.user.is_authenticated:
+                contact_message.user = request.user
+            contact_message.save()
+            messages.success(request, 'Talebiniz alınmıştır.', extra_tags='bold')
+            return redirect('contact')
+    else:
+        form = ContactForm()
+    
+    cities = City.objects.all()
+    return render(request, 'contact.html', {'form': form, 'cities': cities})
+
+
+
+
+
+
+
+
+
+
 
 

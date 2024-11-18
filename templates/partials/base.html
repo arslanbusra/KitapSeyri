@@ -16,11 +16,16 @@
     <link rel="stylesheet" type="text/css" href="{% static 'about.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'contact.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'article.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'article1.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'activity.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'activity1.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'buybook.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'sellbook.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'cart.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'checkout.css' %}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -44,12 +49,17 @@
                 <div class="footerItem">
                     <h3>Çabuk Bağlantılar</h3>
                     <ul class="footerlinks">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="sellbook.html">KitapSat</a></li>
-                        <li><a href="buybook.html">SatınAl</a></li>
-                        <li><a href="article.html">Hakkımızda</a></li>
-                        <li><a href="activity.html">Etkinlik</a></li>
-                        <li><a href="contact.html">İletişim</a></li>
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'sellbook' %}">KitapSat</a>
+                        {% else %}
+                        <a href="{% url 'login' %}">KitapSat</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'buybook' %}">SatınAl</a></li>
+                        <li><a href="{% url 'event_list' %}">Etkinlik</a></li>
+                        <li><a href="{% url 'article_list' %}">Makalelerimiz</a></li>
+                        <li><a href="{% url 'about' %}">Hakkımızda</a></li>
+                        <li><a href="{% url 'contact' %}">İletişim</a></li>
                     </ul>    
                 </div>
             </div>
@@ -68,3 +78,4 @@
 
 </body>
 </html>
+

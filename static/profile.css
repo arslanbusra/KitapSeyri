@@ -3,16 +3,20 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #FDFDFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #EFEFEF;
 }
 
 .profile-header {
     text-align: center;
     padding-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 2px solid #EDEDED;
     margin-bottom: 20px;
+    background-color: #7ee2a4;
+    border-radius: 12px 12px 0 0;
+    padding: 30px;
 }
 
 .profile-header h2 {
@@ -20,6 +24,7 @@
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
+    color: #6C63FF;
 }
 
 .profile-header .welcome-message {
@@ -30,6 +35,7 @@
 .profile-content {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
 .profile-section {
@@ -41,6 +47,10 @@
     font-weight: bold;
     color: #333;
     margin-bottom: 10px;
+    color: #6C63FF;
+    background-color: #a6e0a7;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .profile-section p {
@@ -54,23 +64,25 @@
 }
 
 .profile-section ul li {
-    background-color: #fff;
+    background-color: #FFF;
     padding: 15px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 .profile-section ul li:hover {
-    background-color: #f1f1f1;
+    background-color: #F1F1F1;
 }
 
 .profile-section ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .profile-section ul li a:hover {
-    color: #007bff;
+    color: #6C63FF;
 }

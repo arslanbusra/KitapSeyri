@@ -1,22 +1,41 @@
 {% extends 'partials/base.html' %}
+{% load static %}
 {% block content %}
 <div class="art0">
     <img src="{{ article.image.url }}" alt="{{ article.title }}">
     <h2>{{ article.title }}</h2>
     <p>{{ article.content }}</p>
     <div class="like-section">
-        <button onclick="increaseLike('likeCount')">Beğen</button>
-        <span id="likeCount">0</span> Beğeni
+        <button onclick="likeArticle('{{ article.id }}')">👏</button>
+        <span id="likeCount">{{ likes }}</span> Beğeni
+    </div>
+    <div class="comment-section">
+        <h3>Yorumlar</h3>
+        <ul>
+            {% for comment in comments %}
+            <li><b>{{ comment.user.username }}:</b> {{ comment.content }} <i>{{ comment.created_at }}</i></li>
+            {% endfor %}
+        </ul>
+        <h3>Yorum Yaz</h3>
+        {% if user.is_authenticated %}
+        <form method="post" action="{% url 'add_comment' article.id %}">
+            {% csrf_token %}
+            <textarea name="content" placeholder="Yorumunuzu buraya yazın..."></textarea><br>
+            <button type="submit">Gönder</button>
+        </form>
+    {% else %}
+        <a href="{% url 'login' %}" class="login-link">Fikrini Paylaş</a>
+    {% endif %}
+
     </div>
 </div>
-<script>
-function increaseLike(likeCountId) {
-    const likeCountSpan = document.getElementById(likeCountId);
-    let likeCount = parseInt(likeCountSpan.textContent);
-    likeCount++;
-    likeCountSpan.textContent = likeCount;
-}
-</script>
+<meta name="csrf-token" content="{{ csrf_token }}">
+
+<script src="{% static 'js/article.js' %}"></script>
 {% endblock %}
+
+
+    
+
 
 

@@ -19,16 +19,29 @@
         <br>Katılıyor musun?
         <br>
         {% if user.is_authenticated %}
-            <a href="{% url 'join_event' event.pk %}" class="button">Katılıyorum</a>
+            <a href="{% url 'join_event' event.pk %}" onclick="alert('Pazar akşamı görüşmek üzere.')" class="button">Katılıyorum</a>
         {% else %}
             <a href="{% url 'login' %}" class="button">Giriş Yap</a>
         {% endif %}
         <br><br><a href="https://zoom.us/j/your-zoom-meeting-id" target="_blank">Zoom Bağlantısı</a></p>
     </div>
     <div class="comment-section">
+        <h3>Yorumlar</h3>
+        <ul>
+            {% for comment in comments %}
+            <li><strong>{{ comment.user.username }}</strong>: {{ comment.content }} <em>{{ comment.created_at }}</em></li>
+            {% endfor %}
+        </ul>
         <h3>Etkinlik hakkında bir şeyler yazın</h3>
-        <textarea placeholder="Yorumunuzu buraya yazın..."></textarea><br>
-        <button type="button">Gönder</button>
+        {% if user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit">Gönder</button>
+        </form>
+        {% else %}
+        <p>Yorum yapabilmek için <a href="{% url 'login' %}">giriş yapmalısınız</a>.</p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

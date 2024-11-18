@@ -1,0 +1,82 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+{% load static %}
+
+<h2 class="headerCheckout">Tamamla ve Öde</h2>
+<p>Son adımı tamamla ve kitap seyrinde yola çık!</p>
+<div class="rowCheckout">
+  <div class="col-75CH">
+    <div class="containerCheckout">
+      <form action="{% url 'complete' %}" method="post">
+        {% csrf_token %}
+        <div class="rowCheckout">
+          <div class="col-50CH">
+            <h3>Fatura Bilgileri</h3>
+            <label for="fname" class="checkout-label"><i class="fa fa-user"></i>Adınız</label>
+            <input type="text" id="fname" name="firstname" class="checkout-input" placeholder="Büşra Arslan" required>
+            <label for="email" class="checkout-label"><i class="fa fa-envelope"></i> Email</label>
+            <input type="email" id="email" name="email" class="checkout-input" placeholder="busra@example.com" required>
+            <label for="adr" class="checkout-label"><i class="fa fa-address-card-o"></i> Adres</label>
+            <input type="text" id="adr" name="address" class="checkout-input" placeholder="Karşıyaka Mah. Garaj Sok." required>
+            <label for="city" class="checkout-label"><i class="fa fa-institution"></i> Şehir</label>
+            <input type="text" id="city" name="city" class="checkout-input" placeholder="Yalova" required>
+
+            <div class="rowCheckout">
+              <div class="col-50CH">
+                <label for="state" class="checkout-label">İlçe</label>
+                <input type="text" id="state" name="state" class="checkout-input" placeholder="Armutlu" required>
+              </div>
+              <div class="col-50CH">
+                <label for="zip" class="checkout-label">Posta Kodu</label>
+                <input type="text" id="zip" name="zip" class="checkout-input" placeholder="10001" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50CH">
+            <h3>Satın Alma Detayları</h3>
+            <label for="fname" class="checkout-label">Kredi Kartları</label>
+            <div class="icon-containerCheckout">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname" class="checkout-label">Kart Üzerindeki İsim</label>
+            <input type="text" id="cname" name="cardname" class="checkout-input" placeholder="Büşra Arslan" required>
+            <label for="ccnum" class="checkout-label">Kredi Kartı Numarası</label>
+            <input type="text" id="ccnum" name="cardnumber" class="checkout-input" placeholder="1111-2222-3333-4444" required>
+            <label for="expmonth" class="checkout-label">Son Kullanma Tarihi Ay Bilgisi</label>
+            <input type="text" id="expmonth" name="expmonth" class="checkout-input" placeholder="Eylül" required>
+            <div class="rowCheckout">
+              <div class="col-50CH">
+                <label for="expyear" class="checkout-label">Son Kullanma Tarihi Yıl Bilgisi</label>
+                <input type="text" id="expyear" name="expyear" class="checkout-input" placeholder="2018" required>
+              </div>
+              <div class="col-50CH">
+                <label for="cvv" class="checkout-label">CVV</label>
+                <input type="text" id="cvv" name="cvv" class="checkout-input" placeholder="352" required>
+              </div>
+            </div>
+          </div>
+        </div>
+        <label class="checkout-label">
+          <input type="checkbox" checked="checked" name="sameadr"> Faturam teslimat ile aynı adrese teslim edilsin.
+        </label>
+        <input type="submit" class="checkout-btn" value="Ödemeyi Tamamla">
+      </form>
+    </div>
+  </div>
+  <div class="col-25CH">
+    <div class="containerCheckout">
+      <h4>Sepet <span class="priceCH" style="color:black"><i class="fa fa-shopping-cart"></i> <b>{{ cart_items|length }}</b></span></h4>
+      {% for item in cart_items %}
+      <p><a href="#" class="checkout-link">{{ item.book.bookname }}</a> <span class="priceCH">{{ item.book.price }} ₺ x {{ item.quantity }}</span></p>
+      {% endfor %}
+      <hr class="checkout-divider">
+      <p>Toplam <span class="priceCH" style="color:black"><b>{{ total_amount }} ₺</b></span></p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

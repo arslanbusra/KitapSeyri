@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from sellbook.models import SellBook
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -27,11 +28,14 @@ class BuyBook(models.Model):
     def __str__(self):
         return self.bookname
 
-class Order(models.Model):
-    book = models.ForeignKey(BuyBook, on_delete=models.CASCADE)
-    buyer = models.ForeignKey(User, on_delete=models.CASCADE, related_name='buy_orders', default=1)
-    quantity = models.PositiveIntegerField(default=1)
-    ordered_at = models.DateTimeField(auto_now_add=True)
+class BuyCart(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f'{self.book.bookname} - {self.buyer.username}'
+class BuyCartItem(models.Model):
+    cart = models.ForeignKey(BuyCart, on_delete=models.CASCADE)
+    book = models.ForeignKey(SellBook, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+
+

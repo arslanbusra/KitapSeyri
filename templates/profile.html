@@ -10,7 +10,14 @@
             <h3>Siparişlerim</h3>
             <ul>
                 {% for order in orders %}
-                <li>{{ order.book.bookname }} - {{ order.ordered_at }}</li>
+                <li>
+                    Sipariş Tarihi: {{ order.created_at }} - Toplam: {{ order.total_amount }} ₺
+                    <ul>
+                        {% for item in order.orderitem_set.all %}
+                        <li>{{ item.book.bookname }} - Adet: {{ item.quantity }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
                 {% endfor %}
             </ul>
         </div>
@@ -22,7 +29,18 @@
                 {% endfor %}
             </ul>
         </div>
+        <div class="profile-section">
+            <h3>Katıldığım Etkinlikler</h3>
+            <ul>
+                {% for event in joined_events %}
+                <li>{{ event.title }} - {{ event.date }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>
 {% endblock %}
+
+
+
 

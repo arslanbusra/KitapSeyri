@@ -2,42 +2,53 @@
 {% block content %}
 {% load static %}
 
-<form id="regForm" action="{% url 'register' %}" method="post">
-  {% csrf_token %}
-  <h1>Kayıt Ol</h1>
-  <!-- One "tab" for each step in the form: -->
-  <div class="tab">İsim:
-    <p>{{ form.first_name.label_tag }}<input type="text" name="first_name" placeholder="İsim..." oninput="this.className = ''" value="{{ form.first_name.value }}"></p>
-    <p>{{ form.last_name.label_tag }}<input type="text" name="last_name" placeholder="Soy isim..." oninput="this.className = ''" value="{{ form.last_name.value }}"></p>
-  </div>
-  <div class="tab">İletişim Bilgileri:
-    <p>{{ form.email.label_tag }}<input type="email" name="email" placeholder="E-mail..." oninput="this.className = ''" value="{{ form.email.value }}"></p>
-    <p><input placeholder="Telefon..." oninput="this.className = ''" name="phone"></p>
-  </div>
-  <div class="tab">Doğum Tarihi:
-    <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
-    <p><input placeholder="mm" oninput="this.className = ''" name="mm"></p>
-    <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
-  </div>
-  <div class="tab">Giriş Bilgileri:
-    <p>{{ form.username.label_tag }}<input type="text" name="username" placeholder="Kullanıcı Adınız..." oninput="this.className = ''" value="{{ form.username.value }}"></p>
-    <p>{{ form.password1.label_tag }}<input type="password" name="password1" placeholder="Şifreniz..." oninput="this.className = ''"></p>
-    <p>{{ form.password2.label_tag }}<input type="password" name="password2" placeholder="Şifrenizi Tekrar Girin..." oninput="this.className = ''"></p>
-  </div>
-  <div style="overflow:auto;">
-    <div style="float:right;">
-      <button type="button" id="prevBtn" onclick="nextPrev(-1)">Önceki</button>
-      <button type="button" id="nextBtn" onclick="nextPrev(1)">Sonraki</button>
-    </div>
-  </div>
-  <!-- Circles which indicates the steps of the form: -->
-  <div style="text-align:center;margin-top:40px;">
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-    <span class="step"></span>
-  </div>
-</form>
+<div class="register-container">
+    <h1>Kayıt Ol</h1>
+    <p>Zaten üye misiniz? <a href="{% url 'login' %}">Lütfen giriş yapın</a>.</p>
+    <form id="regForm" action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <!-- Hataları göster -->
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="alert alert-danger">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <!-- Form alanları -->
+        <div class="tab">İsim:
+            <p>{{ form.first_name.label_tag }}{{ form.first_name }}</p>
+            <p>{{ form.last_name.label_tag }}{{ form.last_name }}</p>
+        </div>
+        <div class="tab">İletişim Bilgileri:
+            <p>{{ form.email.label_tag }}{{ form.email }}</p>
+            <p><label for="phone">Telefon:</label><input type="text" name="phone" placeholder="Telefon..." oninput="this.className = ''"></p>
+        </div>
+        <div class="tab">Doğum Tarihi:
+            <p><label for="dd">Gün:</label><input type="text" name="dd" placeholder="dd" oninput="this.className = ''"></p>
+            <p><label for="mm">Ay:</label><input type="text" name="mm" placeholder="mm" oninput="this.className = ''"></p>
+            <p><label for="yyyy">Yıl:</label><input type="text" name="yyyy" placeholder="yyyy" oninput="this.className = ''"></p>
+        </div>
+        <div class="tab">Giriş Bilgileri:
+            <p>{{ form.username.label_tag }}{{ form.username }}</p>
+            <p>{{ form.password1.label_tag }}{{ form.password1 }}</p>
+            <p>{{ form.password2.label_tag }}{{ form.password2 }}</p>
+        </div>
+        <div style="overflow:auto;">
+            <div style="float:right;">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Önceki</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)">Sonraki</button>
+            </div>
+        </div>
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+        </div>
+    </form>
+</div>
 
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)

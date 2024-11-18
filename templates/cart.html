@@ -1,0 +1,51 @@
+{% extends 'partials/base.html' %}
+{% block content %}
+<div class="cart-container">
+    <h2 class="cart-header">Sepetim</h2>
+    {% if messages %}
+    <div class="cart-messages">
+        {% for message in messages %}
+        <div class="cart-alert cart-alert-{{ message.tags }}">
+            {{ message }}
+            <button onclick="this.parentElement.style.display='none';">&times;</button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Kitap</th>
+                <th>Fiyat</th>
+                <th>Adet</th>
+                <th>Toplam</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{ item.book.bookname }}</td>
+                <td>{{ item.book.price }} ₺</td>
+                <td>
+                    <form method="post" action="{% url 'update_cart' item.id %}">
+                        {% csrf_token %}
+                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
+                        <button type="submit">Güncelle</button>
+                    </form>
+                </td>
+                <td>{{ item.book.price|floatformat:2 }} ₺</td>
+                <td>
+                    <form method="post" action="{% url 'remove_from_cart' item.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Sil</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="cart-total">Toplam: {{ total_amount|floatformat:2 }} ₺</p>
+    <a href="{% url 'checkout' %}" class="cart-btn">Ödemeyi Tamamla</a>
+</div>
+{% endblock %}
